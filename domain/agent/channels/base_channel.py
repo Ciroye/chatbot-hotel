@@ -1,10 +1,10 @@
 from abc import ABCMeta
-from infraestructure.utils import Config
+
+from infraestructure.repository.agent import CacheRepository
 
 
 class BaseChannel(metaclass=ABCMeta):
     def __init__(self):
-        # config = Config().get_config(section='redis')
-        # Cache server goes here
-        self.cache = None
-        self.context: str = None
+        self.cache = CacheRepository()
+        self.context: str = self.cache.get_user_context()
+

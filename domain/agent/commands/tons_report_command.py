@@ -6,8 +6,7 @@ class TonsReportCommand(BaseCommand):
     def __init__(self, channel, command, successor=None):
         super().__init__(channel, command, successor=successor, command_intent='tons_report')
         self.requirements = [
-            RequirementModel(requireEntity="divisions", questions=["Cual es tu nombre?", "Cómo te llamas?"])
-        ]
+            RequirementModel(requireEntity="divisions", questions=["Cual es tu nombre?", "Cómo te llamas?"])]
 
     def next(self):
         if self.is_command():
