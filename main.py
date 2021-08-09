@@ -1,7 +1,9 @@
 from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 
+import db
 from api import api_router
+from domain.models.db.room import Room
 from infraestructure.utils import Config
 
 config = Config().get_config(section='app')
@@ -17,3 +19,7 @@ app.add_middleware(
 )
 
 app.include_router(api_router, prefix=config['api_url'])
+
+if __name__ == '__main__':
+    print("Migration Start")
+    db.Base.metadata.create_all(db.engine)

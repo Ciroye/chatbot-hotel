@@ -6,8 +6,7 @@ class TonsReportCommand(BaseCommand):
     def __init__(self, channel, command, successor=None):
         super().__init__(channel, command, successor=successor, command_intent='tons_report')
         self.requirements = [
-            RequirementModel(requireEntity="divisions", questions=[
-                             "Cual es tu nombre?", "Cómo te llamas?"])
+            RequirementModel(requireEntity="divisions", questions=["Cual es tu nombre?", "Cómo te llamas?"])
         ]
 
     def next(self):
@@ -15,7 +14,7 @@ class TonsReportCommand(BaseCommand):
             if self.meet_requirements():
                 print(self.command.entities)
                 for e in self.command.entities:
-                    return self.sed({"message": f"hello {e.value} !"})
+                    return self.send({"message": f"hello {e.value} !"})
             else:
                 return self.ask_for_requirements()
 

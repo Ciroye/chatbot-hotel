@@ -1,9 +1,7 @@
-from fastapi import APIRouter, Body, Depends, HTTPException
-from infraestructure.utils.auth import get_current_user
-from domain.services.agent import AgentService
+from fastapi import APIRouter
+
 from domain.models.agent import RequestModel, ResponseModel
-from typing import List
-import redis
+from domain.services.agent import AgentService
 
 router = APIRouter()
 

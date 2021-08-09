@@ -6,8 +6,7 @@ class GreetingCommand(BaseCommand):
     def __init__(self, channel, command, successor=None):
         super().__init__(channel, command, successor=successor, command_intent='greeting')
         self.requirements = [
-            RequirementModel(requireEntity="user_name", questions=[
-                             "Cual es tu nombre?", "Cómo te llamas?"])
+            RequirementModel(requireEntity="user_name", questions=["Cual es tu nombre?", "Cómo te llamas?"])
         ]
 
     def next(self):
@@ -15,7 +14,7 @@ class GreetingCommand(BaseCommand):
             if self.meet_requirements():
                 print(self.command.entities)
                 for e in self.command.entities:
-                    return self.sed({"message": f"hello {e.value} !"})
+                    return self.send({"message": f"hello {e.value} !"})
             else:
                 return self.ask_for_requirements()
 
