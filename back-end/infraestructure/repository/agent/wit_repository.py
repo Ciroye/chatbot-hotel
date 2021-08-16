@@ -3,7 +3,7 @@ from wit import Wit
 
 class WitRepository:
     def __init__(self):
-        self.client = Wit('FFYVNIRFYZWFVBU7L5EUTCUMGX6T3BLA')
+        self.client = Wit('OYJ4URRG32TJSI5GBHAWDQGJCVS57QWE')
 
     def get_command(self, message):
         command = {
