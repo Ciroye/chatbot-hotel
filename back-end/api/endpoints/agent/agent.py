@@ -8,4 +8,4 @@ router = APIRouter()
 
 @router.post('/chat', response_model=ResponseModel)
 def get_permissions(u: RequestModel):
-    return AgentService(1).init_web_conversation(u)
+    return AgentService().init_web_conversation(u)

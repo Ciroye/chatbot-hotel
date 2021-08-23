@@ -20,7 +20,12 @@ class WitRepository:
             entities = nlp_resp['entities']
             for e in entities:
                 for ev in entities[e]:
-                    command['entities'].append(
-                        {"name": ev['name'], "value": ev['value']})
+                    print(ev)
+                    if ev['name'] == 'wit$datetime' and 'value' not in ev.keys():
+                        command['entities'].append(
+                            {"name": ev['name'], "values": {}, "dates": {"from_": ev["from"]["value"], "to": ev["to"]["value"]}})
+                    else:
+                        command['entities'].append(
+                            {"name": ev['name'], "value": ev['value']})
 
         return command

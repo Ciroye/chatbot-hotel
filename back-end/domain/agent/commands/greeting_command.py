@@ -5,9 +5,7 @@ from domain.models.agent import RequirementModel
 class GreetingCommand(BaseCommand):
     def __init__(self, channel, command, successor=None):
         super().__init__(channel, command, successor=successor, command_intent='greeting')
-        self.requirements = [RequirementModel(requireEntity="user_name", questions=["Cual es tu nombre?", "Cómo te llamas?"]),
-                             RequirementModel(requireEntity="age", questions=["Cual es tu nombre?", "Cómo te llamas?"]),
-                             RequirementModel(requireEntity="time_period", questions=["Cual es tu nombre?", "Cómo te llamas?"])]
+        self.requirements = []
 
     def next(self):
         if self.is_command():

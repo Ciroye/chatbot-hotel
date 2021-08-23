@@ -40,7 +40,6 @@ class BaseCommand(metaclass=ABCMeta):
         self.__check_command_step__()
         entities = self.channel.cache.get_user_context_value()
         if entities:
-            print(entities)
             for e in entities:
                 self.command.entities.append(CommandEntity(**e))
             return entities
