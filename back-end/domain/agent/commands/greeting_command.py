@@ -1,11 +1,12 @@
 from domain.agent.commands.base_command import BaseCommand
-from domain.models.agent import RequirementModel
+from infraestructure.repository.agent import AgentRepository
 
 
 class GreetingCommand(BaseCommand):
     def __init__(self, channel, command, successor=None):
         super().__init__(channel, command, successor=successor, command_intent='greeting')
         self.requirements = []
+        self.repository = AgentRepository()
 
     def next(self):
         if self.is_command():

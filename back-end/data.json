@@ -1,0 +1,97 @@
+{
+  "rooms": [
+    {
+      "code": "101",
+      "capacity": 3,
+      "price": 60,
+      "amenities": [
+        "Bar"
+      ]
+    },
+    {
+      "code": "102",
+      "capacity": 1,
+      "price": 40,
+      "amenities": [
+        "Pool"
+      ]
+    },
+    {
+      "code": "103",
+      "capacity": 1,
+      "price": 15,
+      "amenities": [
+        "Restaurant"
+      ]
+    },
+    {
+      "code": "201",
+      "capacity": 4,
+      "price": 80,
+      "amenities": [
+        "Restaurant",
+        "Pool"
+      ]
+    },
+    {
+      "code": "202",
+      "capacity": 5,
+      "price": 100,
+      "amenities": [
+        "Bar",
+        "Restaurant",
+        "Pool"
+      ]
+    },
+    {
+      "code": "203",
+      "capacity": 4,
+      "price": 70,
+      "amenities": [
+        "Bar",
+        "Restaurant",
+        "Pool"
+      ]
+    },
+    {
+      "code": "301",
+      "capacity": 1,
+      "price": 50,
+      "amenities": [
+        "Bar",
+        "Restaurant",
+        "Pool"
+      ]
+    },
+    {
+      "code": "302",
+      "capacity": 6,
+      "price": 120,
+      "amenities": [
+        "Restaurant"
+      ]
+    },
+    {
+      "code": "303",
+      "capacity": 7,
+      "price": 200,
+      "amenities": [
+        "Bar",
+        "Restaurant",
+        "Pool"
+      ]
+    }
+  ],
+  "reserves": [
+    {
+      "code": "101",
+      "start": "2021-07-08T18:25:43.511Z",
+      "end": "2021-07-15T18:25:43.511Z"
+    },
+    {
+      "code": "302",
+      "start": "2021-08-10T18:25:43.511Z",
+      "end": "2021-08-20T18:25:43.511Z"
+    }
+  ]
+}

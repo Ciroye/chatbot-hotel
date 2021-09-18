@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import random
 from abc import ABCMeta, abstractmethod
-from typing import List
+from typing import List, Optional
 
 from domain.agent.channels import BaseChannel
 from domain.models.agent import CommandModel, ResponseModel, RequirementModel, CommandEntity
@@ -76,3 +76,9 @@ class BaseCommand(metaclass=ABCMeta):
     def send(self, response: ResponseModel) -> ResponseModel:
         self.__reset_context__()
         return response
+
+    def get_entity(self, key: str) -> Optional[CommandEntity]:
+        keys = [k for k in self.command.entities if k.name == key]
+        if len(keys) > 0:
+            return keys[0]
+        return None

@@ -2,12 +2,12 @@ import json
 
 from redis import Redis
 
-from infraestructure.utils import Config
+from infraestructure.utils import get_config
 
 
 class CacheRepository:
     def __init__(self):
-        config = Config().get_config(section='redis')
+        config = get_config(section='redis')
         self.cache = Redis(host=config['host'], db=int(config['db']), port=int(config['port']), decode_responses=True)
 
     def get_user_context(self):

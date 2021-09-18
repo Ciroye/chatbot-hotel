@@ -20,3 +20,4 @@ class AgentService:
         orders_report_command = ReserveRoomCommand(channel, command, None)
         greeting_command = GreetingCommand(channel, command, successor=orders_report_command)
         return greeting_command
+

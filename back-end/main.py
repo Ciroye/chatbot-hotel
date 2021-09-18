@@ -4,10 +4,9 @@ from starlette.middleware.cors import CORSMiddleware
 
 import db
 from api import api_router
-from domain.models.db.room import Room
-from infraestructure.utils import Config
+from infraestructure.utils import get_config
 
-config = Config().get_config(section='app')
+config = get_config(section='app')
 
 app = FastAPI(title=config['project_name'], openapi_url="/api/v1/openapi.json")
 
@@ -23,5 +22,5 @@ app.include_router(api_router, prefix=config['api_url'])
 
 if __name__ == '__main__':
     print("Migration Start")
-    db.Base.metadata.create_all(db.engine)
+    db.Base.metadata.create_all(db.engine, checkfirst=False)
     uvicorn.run(app, host="0.0.0.0", port=8000)
