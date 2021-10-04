@@ -1,0 +1,18 @@
+version: '2'
+
+services:
+  web-api:
+    build: ./back-end/
+    ports: 
+      - "8080:80"
+
+  chat-front:
+    build: ./front-end/
+    restart: always
+    ports:
+      - "3000:80"
+
+  redis:
+    image: redis
+    environment:
+      name: chat-redis

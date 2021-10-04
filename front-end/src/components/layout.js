@@ -13,17 +13,17 @@ const Layout = ({ children }) => {
                         <span className="icon-bar"></span>
                         <span className="icon-bar"></span>
                     </button>
-                    <a className="navbar-brand" href="index.php"><img src="images/logo.png" alt="holiday crown" /></a>
+                    <a className="navbar-brand" href="#"><img src="images/logo.png" alt="holiday crown" /></a>
                 </div>
 
                 <div className="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
 
                     <ul className="nav navbar-nav">
-                        <li><a href="index.php">Home </a></li>
-                        <li><a href="rooms-tariff.php">Rooms & Tariff</a></li>
-                        <li><a href="introduction.php">Introduction</a></li>
-                        <li><a href="gallery.php">Gallery</a></li>
-                        <li><a href="contact.php">Contact</a></li>
+                        <li><a href="#">Home </a></li>
+                        <li><a href="#">Rooms & Tariff</a></li>
+                        <li><a href="#">Introduction</a></li>
+                        <li><a href="#">Gallery</a></li>
+                        <li><a href="#">Contact</a></li>
                     </ul>
                 </div>
             </div>
@@ -173,7 +173,7 @@ const Layout = ({ children }) => {
                             <a className="right carousel-control" href="#RoomCarousel" role="button" data-slide="next"><i
                                 className="fa fa-angle-right"></i></a>
                         </div>
-                        <div className="caption">Rooms<a href="rooms-tariff.php" className="pull-right"><i
+                        <div className="caption">Rooms<a href="" className="pull-right"><i
                             className="fa fa-edit"></i></a></div>
                     </div>
 
@@ -194,7 +194,7 @@ const Layout = ({ children }) => {
                             <a className="right carousel-control" href="#TourCarousel" role="button" data-slide="next"><i
                                 className="fa fa-angle-right"></i></a>
                         </div>
-                        <div className="caption">Tour Packages<a href="gallery.php" className="pull-right"><i
+                        <div className="caption">Tour Packages<a href="#" className="pull-right"><i
                             className="fa fa-edit"></i></a></div>
                     </div>
 
@@ -215,7 +215,7 @@ const Layout = ({ children }) => {
                             <a className="right carousel-control" href="#FoodCarousel" role="button" data-slide="next"><i
                                 className="fa fa-angle-right"></i></a>
                         </div>
-                        <div className="caption">Food and Drinks<a href="gallery.php" className="pull-right"><i
+                        <div className="caption">Food and Drinks<a href="#" className="pull-right"><i
                             className="fa fa-edit"></i></a></div>
                     </div>
                 </div>
@@ -238,11 +238,11 @@ const Layout = ({ children }) => {
                     <div className="col-sm-3">
                         <h4>Quick Links</h4>
                         <ul className="list-unstyled">
-                            <li><a href="rooms-tariff.php">Rooms & Tariff</a></li>
-                            <li><a href="introduction.php">Introduction</a></li>
-                            <li><a href="gallery.php">Gallery</a></li>
-                            <li><a href="tour.php">Tour Packages</a></li>
-                            <li><a href="contact.php">Contact</a></li>
+                            <li><a href="">Rooms & Tariff</a></li>
+                            <li><a href="#">Introduction</a></li>
+                            <li><a href="#">Gallery</a></li>
+                            <li><a href="#">Tour Packages</a></li>
+                            <li><a href="#">Contact</a></li>
                         </ul>
                     </div>
                     <div className="col-sm-4 subscribe">
@@ -273,9 +273,6 @@ const Layout = ({ children }) => {
 
 
         </footer>
-
-        <div className="text-center copyright">Powered by <a href="http://thebootstrapthemes.com">thebootstrapthemes.com</a>
-        </div>
 
         <a href="#home" className="toTop scroll"><i className="fa fa-angle-up"></i></a>
         <div id="blueimp-gallery" className="blueimp-gallery blueimp-gallery-controls">

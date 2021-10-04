@@ -19,8 +19,3 @@ app.add_middleware(
 )
 
 app.include_router(api_router, prefix=config['api_url'])
-
-if __name__ == '__main__':
-    print("Migration Start")
-    db.Base.metadata.create_all(db.engine, checkfirst=False)
-    uvicorn.run(app, host="0.0.0.0", port=8000)
