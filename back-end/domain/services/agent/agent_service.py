@@ -2,6 +2,7 @@ from domain.agent.channels import WebChannel, BaseChannel
 from domain.agent.commands import GreetingCommand, BaseCommand
 from domain.agent.commands.amenities_command import AmenitiesCommand
 from domain.agent.commands.check_for_reserve_command import CheckForReserveCommand
+from domain.agent.commands.fallback import FallbackCommand
 from domain.agent.commands.reserve_room import ReserveRoomCommand
 from domain.models.agent import RequestModel, CommandModel
 from infraestructure.repository.agent import WitRepository
@@ -19,7 +20,8 @@ class AgentService:
 
     @staticmethod
     def __build_chain__(channel: BaseChannel, command: CommandModel) -> BaseCommand:
-        reserve_command = ReserveRoomCommand(channel, command, None)
+        fallback_command = FallbackCommand(channel, command, successor=None)
+        reserve_command = ReserveRoomCommand(channel, command, successor=fallback_command)
         check_reserve_command = CheckForReserveCommand(channel, command, successor=reserve_command)
         amenities_command = AmenitiesCommand(channel, command, successor=check_reserve_command)
         greeting_command = GreetingCommand(channel, command, successor=amenities_command)

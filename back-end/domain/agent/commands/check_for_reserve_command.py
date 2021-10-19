@@ -10,19 +10,19 @@ from infraestructure.repository.agent import AgentRepository
 
 class CheckForReserveCommand(BaseCommand):
     def __init__(self, channel, command, successor=None):
-        super().__init__(channel, command, successor=successor, command_intent='check_reserve')
+        super().__init__(channel, command, successor=successor, command_intent='ask_for_reservation')
         self.repository = AgentRepository()
         self.requirements = [
-            RequirementModel(requireEntity="room", questions=["How many people do you want to reserve?"]),
-            RequirementModel(requireEntity="start_date", questions=["How many people do you want to reserve?"]),
+            RequirementModel(requireEntity="room", questions=["Which room?"]),
         ]
 
     def next(self):
         if self.is_command():
             if self.meet_requirements():
                 try:
-                    pass
-                    # Logic goes here
+                    room = self.__string_to_int__(self.get_entity('room').value)
+                    reserves = [Reserve(**r) for r in self.repository.get_reserves() if r['code'] == room]
+                    return self.send(ResponseModel(message="\n".join([self.__build_response__(r) for r in reserves])))
                 except Exception as ex:
                     self.__reset_context__()
                     return self.send(ResponseModel(message="Sorry"))
@@ -32,11 +32,10 @@ class CheckForReserveCommand(BaseCommand):
             return self.successor.next()
 
     @staticmethod
-    def __build_response__(room: str, start_date: datetime, end_date: datetime, quantity, duration):
-        return f"Your assigned room is: {room} " \
-               f"Since: {start_date.strftime('%d-%m-%Y')}" \
-               f"Until: {end_date.strftime('%d-%m-%Y')}" \
-               f"For {duration} days and {quantity} people"
+    def __build_response__(room: Reserve):
+        return f"The room {room.code} has these reservations: " \
+               f"Since: {room.start.strftime('%d-%m-%Y')}" \
+               f"Until: {room.end.strftime('%d-%m-%Y')}"
 
     @staticmethod
     def __string_to_int__(value):

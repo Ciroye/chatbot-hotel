@@ -13,15 +13,20 @@ class AmenitiesCommand(BaseCommand):
         super().__init__(channel, command, successor=successor, command_intent='ask_for_amenities')
         self.repository = AgentRepository()
         self.requirements = [
-            RequirementModel(requireEntity="room", questions=["How many people do you want to reserve?"]),
+            RequirementModel(requireEntity="room", questions=["Which room?"]),
         ]
 
     def next(self):
         if self.is_command():
             if self.meet_requirements():
                 try:
-                    pass
-                    # Logic goes here
+                    room = self.__string_to_int__(self.get_entity('room').value)
+                    rooms = [Room(**r) for r in self.repository.get_rooms() if r['code'] == room]
+                    if len(rooms) > 0:
+                        amenities = ", ".join(rooms[0].amenities)
+                        return self.send(ResponseModel(message="The amenities for this room are: " + amenities))
+                    else:
+                        return self.send(ResponseModel(message="Room dot found!"))
                 except Exception as ex:
                     self.__reset_context__()
                     return self.send(ResponseModel(message="Sorry"))

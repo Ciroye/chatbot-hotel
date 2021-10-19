@@ -56,8 +56,8 @@ class ReserveRoomCommand(BaseCommand):
     @staticmethod
     def __build_response__(room: str, start_date: datetime, end_date: datetime, quantity, duration):
         return f"Your assigned room is: {room} " \
-               f"Since: {start_date.strftime('%d-%m-%Y')}" \
-               f"Until: {end_date.strftime('%d-%m-%Y')}" \
+               f"Since: {start_date.strftime('%d-%m-%Y')} " \
+               f"Until: {end_date.strftime('%d-%m-%Y')} " \
                f"For {duration} days and {quantity} people"
 
     @staticmethod
